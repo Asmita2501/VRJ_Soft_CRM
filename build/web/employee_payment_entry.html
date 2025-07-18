@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+
+        <style type="text/css">
+        	.jumbotron{
+        		padding: 10px;
+        		font-family: sans-serif;
+        		background-color: #ED3196;
+        	}
+
+        	p{
+        		color: white;
+        		font-weight: bolder;
+        		margin-top: -15px;
+        		font-style: italic;
+        	}
+
+        	.well{
+        		font-size: 20px;
+        		background-color: gold;
+        	}
+
+        	.well:hover{
+        		background-color: #ED3196;
+        		color: white;
+        		cursor: pointer;
+        	}
+
+        	a{
+        		text-decoration: none;
+        		color: #000123;
+        	}
+
+        	a:hover{
+        		text-decoration: none;
+        		color: white;
+        	}
+
+        	.formdiv{
+        		width: 40%;
+        		margin-left: 30%;
+        		background: linear-gradient(to right bottom,deeppink,purple);
+        		padding: 10px;
+        		color: white;
+        	}
+
+        	.btn{
+        		background-color: gold;
+        		border: none;
+        	}
+    </style>
+
+    <script type="text/javascript">
+    	function validation()
+    	{
+            //validation for first name
+
+    	    if(document.f1.fname.value=="")
+            {
+              alert("Please Enter the First Name");
+              document.f1.fname.focus();
+              return false;
+            }
+
+            var data=/^[A-Za-z]+$/;
+
+            if(!document.f1.fname.value.match(data))
+            {
+
+            alert("Please Enter Valid First name");
+
+            document.f1.fname.focus();
+
+            return false;
+            }
+            
+              //validation for first name
+
+    	    if(document.f1.lname.value=="")
+            {
+              alert("Please Enter the Last Name");
+              document.f1.lname.focus();
+              return false;
+            }
+
+            var data=/^[A-Za-z]+$/;
+
+            if(!document.f1.lname.value.match(data))
+            {
+
+            alert("Please Enter Valid Last Name");
+
+            document.f1.lname.focus();
+
+            return false;
+            }
+
+            //validation for payment amount
+
+            if(document.f1.pay_amt.value=="")
+            {
+
+            alert("Please Enter Payment Amount");
+
+            document.f1.pay_amt.focus();
+
+            return false;
+            }
+
+             
+    	     //validation for dropdown
+
+    	    if(document.f1.job.value=="")
+    	    {
+    		 alert("Please Select The Job");
+    		 document.f1.job.focus();
+    		 return false;
+    	    }
+
+    	   //validation for radio button
+
+    	   if(document.f1.pay_mode[0].checked==false && document.f1.pay_mode[1].checked==false && document.f1.pay_mode[2].checked==false)
+    	   {
+    		  alert("Please Select the Radio Button");
+    		  return false;
+    	   }
+           
+             //validation for radio button
+
+    	   if(document.f1.incentive_amt[0].checked==false && document.f1.incentive_amt[1].checked==false)
+    	   {
+    		  alert("Please Select the Radio Button");
+    		  return false;
+    	   }
+           
+             //validation for final amount
+
+    	    if(document.f1.final_amt.value=="")
+    	    {
+    		 alert("Please Enter The Final Amount");
+    		 document.f1.final_amt.focus();
+    		 return false;
+    	    }
+           
+}//end of validation
+
+    
+       function showTime()
+        {
+           var d=new Date();
+           
+           document.f1.pay_time.value=d.toLocaleTimeString();
+        }
+        function payment()
+        {
+            var pay_amt=document.f1.pay_amt.value;
+            var incentive_amt=document.f1.incentive_amt.value;
+            
+            var final_pay=parseInt((pay_amt*incentive_amt))+parseInt(pay_amt);
+            
+            document.f1.final_pay_amt.value=final_pay;
+        }
+    </script>
+
+</head>
+<body onload="showTime()">
+
+     <div class="jumbotron">
+     	<h2 style="color: gold">VRJ Soft CRM</h2>
+     	<p>Digital Software Solution</p>
+    </div>
+
+    <button class="btn btn-primary">
+    	<a href="logout.html">Log Out</a>
+    </button>
+    
+    <a href="employee_dashboard.html">
+        <button class="btn btn-info">Go To Dashboard</button>
+    </a>
+
+    <div class="form formdiv">
+        <form name="f1" action="employee_payment_entry.jsp" method="POST">
+    		<h4 class="text-center">Employee Payment Entry</h4>
+
+
+               
+
+
+    		<div class="form-group">
+                    <input type="text" name="pay_time" class="form-control" readonly="" disabled="">
+    		</div>
+                
+                <div class="form-group">
+                    <input type="text" name="fname" placeholder="First Name" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" name="lname" placeholder="Last Name" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <input type="number" name="pay_amt" placeholder="Payment Amount" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <select name="job" class="form-control">
+                        <option value="">--select job--</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                        <option value="Analyst">Analyst</option>
+                    </select>
+                </div>
+                    
+                <div class="form-group">
+                  <label>Payment Mode</label>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="Netbanking">NetBanking
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="UPI">UPI
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="By Cheque">By Cheque
+                </div>
+            </div>
+                
+                    
+                <div class="form-group">
+                    <label>Incentive Amount</label>
+                    <div class="radio-inline">
+                        <input type="radio" name="incentive_amt" value="0.02" onclick="payment()">2%
+                    </div>
+                    
+                    
+                    <div class="radio-inline">
+                        <input type="radio" name="incentive_amt" value="0.05" onclick="payment()">5%
+                    </div>
+                    
+                  
+                    <div class="radio-inline">
+                        <input type="radio" name="incentive_amt" value="0.10" onclick="payment()">10%
+                    </div>
+                    
+            
+                    <div class="radio-inline">
+                        <input type="radio" name="incentive_amt" value="0" onclick="payment()">No Incentive
+                    </div>
+                    
+                </div>   
+                
+                <div class="form-group">
+    			<input type="number" name="final_pay_amt" placeholder="Final Amount" class="form-control">
+    		</div>
+                    
+                    
+
+        <div class="form-group text-center">
+            
+                <button class="btn btn-info" type="submit" onclick="return validation()">Submit</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+        </div>
+                
+        </form>
+        
+        
+    </div>
+
+</body>
+</html>

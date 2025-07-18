@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+
+        <style type="text/css">
+        	.jumbotron{
+        		padding: 10px;
+        		font-family: sans-serif;
+        		background-color: #ED3196;
+        	}
+
+        	p{
+        		color: white;
+        		font-weight: bolder;
+        		margin-top: -15px;
+        		font-style: italic;
+        	}
+
+        	.well{
+        		font-size: 20px;
+        		background-color: gold;
+        	}
+
+        	.well:hover{
+        		background-color: #ED3196;
+        		color: white;
+        		cursor: pointer;
+        	}
+
+        	a{
+        		text-decoration: none;
+        		color: #000123;
+        	}
+
+        	a:hover{
+        		text-decoration: none;
+        		color: white;
+        	}
+
+        	.formdiv{
+        		width: 40%;
+        		margin-left: 30%;
+        		background: linear-gradient(to right bottom,deeppink,purple);
+        		padding: 10px;
+        		color: white;
+        	}
+
+        	.btn{
+        		background-color: gold;
+        		border: none;
+        	}
+    </style>
+
+    <script type="text/javascript">
+    	function validation()
+    	{
+            //validation for vendor name
+
+    	    if(document.f1.vendor_name.value=="")
+            {
+              alert("Please Enter the Vendor Name");
+              document.f1.vendor_name.focus();
+              return false;
+            }
+
+            var data=/^[A-Za-z]+$/;
+
+            if(!document.f1.vendor_name.value.match(data))
+            {
+
+            alert("Please Enter Valid Vendor name");
+
+            document.f1.vendor_name.focus();
+
+            return false;
+            }
+
+            //validation for payment amount
+
+            if(document.f1.pay_amt.value=="")
+            {
+
+            alert("Please Enter Payment Amount");
+
+            document.f1.pay_amt.focus();
+
+            return false;
+            }
+
+             
+    	     //validation for payment by
+
+    	    if(document.f1.pay_by.value=="")
+    	    {
+    		 alert("Please Enter Payment By");
+    		 document.f1.pay_by.focus();
+    		 return false;
+    	    }
+
+    	   //validation for radio button
+
+    	   if(document.f1.pay_mode[0].checked==false && document.f1.pay_mode[1].checked==false && document.f1.pay_mode[2].checked==false)
+    	   {
+    		  alert("Please Select the Radio Button");
+    		  return false;
+    	   }
+           
+}//end of validation
+
+    function showDate()
+    {
+        var d=new Date();
+        var dd=d.getDate();
+
+        var month_list=["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEPT","OCT","NOV","DEC"];
+
+        var mm=month_list[d.getMonth()];
+
+        var yy=d.getFullYear();
+
+        var cdate=dd+"/"+mm+"/"+yy;
+
+        document.f1.pay_date.value=cdate;
+    }
+
+    </script>
+
+</head>
+<body onload="showDate()">
+
+     <div class="jumbotron">
+     	<h2 style="color: gold">VRJ Soft CRM</h2>
+     	<p>Digital Software Solution</p>
+    </div>
+
+    <button class="btn btn-primary">
+    	<a href="logout.html">Log Out</a>
+    </button>
+    
+    <a href="employee_dashboard.html">
+        <button class="btn btn-info">Go To Dashboard</button>
+    </a>
+
+    <div class="form formdiv">
+        <form name="f1" action="employee_vendor_payment.jsp" method="POST">
+    		<h4 class="text-center">Vendor Payment Entry</h4>
+
+    		<div class="form-group">
+                    <input type="text" name="vendor_name" placeholder="Vendor Name" class="form-control">
+    		</div>
+
+                <div class="form-group">
+                   <input type="text" name="pay_date" class="form-control" readonly>
+                </div>
+
+
+    		<div class="form-group">
+    			<input type="number" name="pay_amt" placeholder="Payment Amount" class="form-control">
+    		</div>
+
+    		
+
+    	    <div class="form-group">
+                <label>Payment Mode</label>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="Netbanking">NetBanking
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="UPI">UPI
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="payment_mode" value="By Cheque">By Cheque
+                </div>
+                
+                <div class="form-group">
+    			<input type="text" name="pay_by" placeholder="Payment By" class="form-control">
+    		</div>
+
+        <div class="form-group text-center">
+            
+                <button class="btn btn-info" type="submit" onclick="return validation()">Submit</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+        </div>
+                
+        </form>
+        
+        
+    </div>
+
+</body>
+</html>

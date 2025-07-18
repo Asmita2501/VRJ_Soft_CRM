@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+
+        <style type="text/css">
+        	.jumbotron{
+        		padding: 10px;
+        		font-family: sans-serif;
+        		background-color: #ED3196;
+        	}
+
+        	p{
+        		color: white;
+        		font-weight: bolder;
+        		margin-top: -15px;
+        		font-style: italic;
+        	}
+
+        	.well{
+        		font-size: 20px;
+        		background-color: gold;
+        	}
+
+        	.well:hover{
+        		background-color: #ED3196;
+        		color: white;
+        		cursor: pointer;
+        	}
+
+        	a{
+        		text-decoration: none;
+        		color: #000123;
+        	}
+
+        	a:hover{
+        		text-decoration: none;
+        		color: white;
+        	}
+
+        	.formdiv{
+        		width: 40%;
+        		margin-left: 30%;
+        		background: linear-gradient(to right bottom,deeppink,purple);
+        		padding: 10px;
+        		color: white;
+        	}
+
+        	.btn{
+        		background-color: gold;
+        		border: none;
+        	}
+    </style>
+
+    <script type="text/javascript">
+    	function validation()
+    	{
+            //validation for first name
+
+    		if(document.f1.fname.value=="")
+            {
+              alert("Please Enter the First Name");
+              document.f1.fname.focus();
+              return false;
+            }
+
+            var data=/^[A-Za-z]+$/;
+
+            if(!document.f1.fname.value.match(data))
+            {
+
+            alert("Please Enter Valid First name");
+
+            document.f1.fname.focus();
+
+            return false;
+            }
+
+            //validation for last name
+
+            if(document.f1.lname.value=="")
+            {
+
+            alert("Please Enter Last Name");
+
+            document.f1.lname.focus();
+
+            return false;
+            }
+
+             var data=/^[A-Za-z]+$/;
+
+            if(!document.f1.lname.value.match(data))
+             {
+             
+             alert("Please Enter Valid Last Name");
+
+             document.f1.lname.focus();
+
+             return false;
+             }
+
+    	     //validation for phone no
+
+    	    if(document.f1.phoneno.value.length!=10)
+    	    {
+    		 alert("Please Enter valid Phone Number");
+    		 document.f1.phoneno.focus();
+    		 return false;
+    	    }
+
+    	   //validation for email
+
+    	   if(document.f1.email.value=="")
+    	   {
+    		  alert("Please Enter Email");
+    		  document.f1.email.focus();
+    		  return false;
+    	   }
+
+    	   //validation for radio button
+
+    	   if(document.f1.profession[0].checked==false && document.f1.profession[1].checked==false && document.f1.profession[2].checked==false)
+    	   {
+    		  alert("Please Select the Radio Button");
+    		  return false;
+    	   }
+           
+           //validation for client_info
+           
+           if(document.f1.client_info.value=="")
+           {
+               alert("Please Enter the Client information");
+               document.f1.client_info.focus();
+               return false;
+           }
+           
+           //validation for company name
+           
+           if(document.f1.company_name.value=="")
+           {
+               alert("Please Enter the Company Name");
+               document.f1.compnay_name.focus();
+               return false;
+           }
+           
+           //validation for company address
+           
+           if(document.f1.company_address.value=="")
+           {
+               alert("Please Enter the Company Address");
+               document.f1.company_address.focus();
+               return false();
+           }
+
+    }//end of validation
+
+    function showDate()
+    {
+        var d=new Date();
+        var dd=d.getDate();
+
+        var month_list=["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEPT","OCT","NOV","DEC"];
+
+        var mm=month_list[d.getMonth()];
+
+        var yy=d.getFullYear();
+
+        var cdate=dd+"/"+mm+"/"+yy;
+
+        document.f1.reg_date.value=cdate;
+    }
+
+    </script>
+
+</head>
+<body onload="showDate()">
+
+     <div class="jumbotron">
+     	<h2 style="color: gold">VRJ Soft CRM</h2>
+     	<p>Digital Software Solution</p>
+    </div>
+
+    <a href="logout.html">
+       <button class="btn btn-primary">Log Out</button>
+    </a>
+    
+     <a href="employee_dashboard.html">
+    	<button class="btn btn-info">Go To Dashboard</button>
+     </a>
+    
+  
+
+    <div class="form formdiv">
+        <form name="f1" action="client_registration.jsp" method="POST">
+    		<h4 class="text-center">New Client Registration</h4>
+
+    		
+
+            <div class="form-group">
+                <input type="text" name="fname" placeholder="First Name" class="form-control">
+            </div>
+
+
+    		<div class="form-group">
+    			<input type="text" name="lname" placeholder="Last Name" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="number" name="phoneno" placeholder="Phone No" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="email" name="email" placeholder="Email" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+                <label>Profession</label>
+
+                <div class="radio-inline">
+                    <input type="radio" name="profession" value="JOB">JOB
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="profession" value="Bussiness">Business
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="profession" value="Self Employee">Self Employee
+                </div>
+
+            </div>
+                
+
+
+                <div class="form-group">
+                    <input type="text" name="client_info" placeholder="Client Information" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="c_name" placeholder="Company Name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="c_address" placeholder="Company Address" class="form-control">
+                </div>
+                
+                <div class="form-group text-center">
+            
+                <button class="btn btn-info" type="submit" onclick="return validation()">Submit</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+                
+    	        </div>
+                
+        </form>
+        
+        
+        
+    </div>
+
+</body>
+</html>

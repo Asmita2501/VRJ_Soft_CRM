@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Day Plan Entry</title>
+
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+
+            <style type="text/css">
+        	.jumbotron{
+        		padding: 10px;
+        		font-family: sans-serif;
+        		background-color: #ED3196;
+        	}
+
+        	p{
+        		color: white;
+        		font-weight: bolder;
+        		margin-top: -15px;
+        		font-style: italic;
+        	}
+
+        	.well{
+        		font-size: 20px;
+        		background-color: gold;
+        	}
+
+        	.well:hover{
+        		background-color: #ED3196;
+        		color: white;
+        		cursor: pointer;
+        	}
+
+        	a{
+        		text-decoration: none;
+        		color: #000123;
+        	}
+
+        	a:hover{
+        		text-decoration: none;
+        		color: white;
+        	}
+
+        	.formdiv{
+        		width: 40%;
+        		margin-left: 30%;
+        		background: linear-gradient(to right bottom,deeppink,purple);
+        		padding: 10px;
+        		color: white;
+        	}
+
+        	.btn{
+        		background-color: gold;
+        		border: none;
+        	}
+    </style>
+
+    <script type="text/javascript">
+    	function validation()
+    	{
+            //validation for task-details
+
+    	    if(document.f1.task_detail.value=="")
+            {
+              alert("Please Enter the Task Details");
+              document.f1.task_detail.focus();
+              return false;
+            }
+
+            //validation for task_status
+
+            if(document.f1.task_status[0].checked==false && document.f1.task_status[1].checked==false)
+            {
+                alert("Please Select the Radio button");
+
+                return false;
+            }
+            
+
+            
+            
+            
+    	     //validation for remark
+
+            if(document.f1.remark[0].checked==false && document.f1.remark[1].checked==false && document.f1.remark[2].checked==false)
+            {
+                alert("Please Select the Radio button");
+
+                return false;
+            }
+
+    	   //validation for plan_by
+
+    	   if(document.f1.plan_by.value=="")
+    	   {
+    		  alert("Please Enter Plan By Name");
+    		  document.f1.plan_by.focus();
+    		  return false;
+    	   }
+           
+           var data=/^[A-Za-z]+$/;
+           
+           if(!document.f1.plan_by.value.match(data))
+           {
+               alert("Enter the Valid Name");
+               document.f1.plan_by.focus();
+               return false;
+           }
+
+}//end of validation
+
+
+    
+    function showDate()
+            {
+               var d=new Date();
+               var dd=d.getDate();
+               var hh=d.getHours();
+               var mm=d.getMinutes();
+
+               var month_list=["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEPT","OCT","NOV","DEC"];
+               var day_list=["Sunday","Monday","Tuesday","Wednsday","Thursday","Friday","Saturday"];
+
+               var mm=month_list[d.getMonth()];
+               var day=day_list[d.getDay()];
+
+               var yy=d.getFullYear();
+               
+               var hh=d.getHours();
+               var mm=d.getMinutes();
+               
+                var ctime=hh+":"+mm;
+           
+
+               var cdate=dd+"/"+mm+"/"+yy;
+
+               document.f1.plan_date.value=cdate;
+               document.f1.plan_day.value=day;
+               document.f1.plan_time.value=ctime;
+         
+            }
+//            
+//        function showDay()
+//        {
+//            var d=new Date();
+//            
+//            var day_list=["Sunday","Monday","Tuesday","Wednsday","Thursday","Friday","Saturday"];
+//            var day=day_list[d.getDay()];
+//            document.f1.plan_day.value=day;
+//        }
+//        
+//        function showTime()
+//        {
+//           var d=new Date();
+//           
+//           var hh=d.getHours();
+//           var mm=d.getMinutes();
+//           
+//           var ctime=hh+":"+mm;
+//           
+//           document.f1.plan_time.value=ctime;
+//        }
+//            
+//            
+            
+  
+
+    </script>
+</head>
+
+<body onload="showDate()">
+
+     <div class="jumbotron">
+     	<h2 style="color: gold">VRJ Soft CRM</h2>
+     	<p>Digital Software Solution</p>
+    </div>
+
+    <a href="logout.html">
+    <button class="btn btn-primary">Log Out</button>
+    </a>
+    
+    <a href="employee_dashboard.html">
+        <button class="btn btn-info">Go To Dashboard</button>
+    </a>
+
+    <div class="form formdiv">
+        <form name="f1" method="POST" action="day_plan_entry.jsp">
+    		<h3 class="text-center">Day Plan Entry</h3>
+    		<div class="form-group">
+                    Plan Date:
+                    <input type="text" name="plan_date"  class="form-control" readonly>
+    		</div>
+
+
+    		<div class="form-group">
+                    Plan Day:
+    			<input type="text" name="plan_day" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+                    Plan Time:
+    			<input type="text" name="plan_time" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+                    Task Details:
+    			<input type="text" name="task_detail" class="form-control">
+    		</div>
+
+    	        <div class="form-group">
+                    <label>Task Status</label>
+
+                <div class="radio-inline">
+                    <input type="radio" name="task_status" value="Urgent And Important">Urgent And Important
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="task_status" value="Not Urgent But Important">Not Urgent But Important
+                </div>
+            </div>
+
+    		<div class="form-group">
+                <label>Remark</label>
+
+                <div class="radio-inline">
+                    <input type="radio" name="remark" value="In Progress">In Progress
+                </div>
+
+                <div class="radio-inline">
+                    <input type="radio" name="remark" value="Completed Task">Completed Task
+                </div>
+                
+                <div class="radio-inline">
+                    <input type="radio" name="remark" value="On Hold">On Hold
+                </div>
+            </div>
+                
+                <div class="form-group" >
+                    Plan By:
+                    <input type="text" name="plan_by" placeholder="Employee Name" class="form-control" >
+                </div>
+
+    		<div class="form-group text-center">
+                    
+                <button class="btn btn-info" type="submit" onclick="return validation()">Submit</button>
+                <button type="reset" class="btn btn-info">Reset</button>
+      
+    		</div>
+        </form>
+    </div>
+
+</body>
+</html>

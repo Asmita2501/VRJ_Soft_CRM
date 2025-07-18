@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Petty Cash Entry</title>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+
+        <style type="text/css">
+        	.jumbotron{
+        		padding: 10px;
+        		font-family: sans-serif;
+        		background-color: #ED3196;
+        	}
+
+        	p{
+        		color: white;
+        		font-weight: bolder;
+        		margin-top: -15px;
+        		font-style: italic;
+        	}
+
+        	.well{
+        		font-size: 20px;
+        		background-color: gold;
+        	}
+
+        	.well:hover{
+        		background-color: #ED3196;
+        		color: white;
+        		cursor: pointer;
+        	}
+
+        	a{
+        		text-decoration: none;
+        		color: #000123;
+        	}
+
+        	a:hover{
+        		text-decoration: none;
+        		color: white;
+        	}
+
+        	.formdiv{
+        	
+        		background: linear-gradient(to right bottom,deeppink,purple);
+        		padding: 10px;
+        		color: white;
+        	}
+
+        	.btn{
+        		background-color: gold;
+        		border: none;
+        	}
+    </style>
+
+    
+    <script type="text/javascript">
+        
+        function validation()
+        {
+            //validation for purchase_date
+
+            if(document.f1.purchase_date.value=="")
+            {
+              alert("Please Select Purchase Date");
+              document.f1.purchase_date.focus();
+              return false;
+            }
+            
+            
+            //validation for department name
+
+            if(document.f1.dname.value=="")
+            {
+                alert("Please Enter The Department Name");
+                document.f1.dname.value.focus();
+                return false;
+            }
+
+
+           var data=/^[A-Za-z]+$/;
+
+           if(!document.f1.dname.value.match(data))
+            {
+               alert("Please Enter Valid Department Name");
+               document.f1.dname.focus();
+               return false;
+            }
+
+        //validation for product name
+
+        if(document.f1.product_name.value=="")
+        {
+            alert("Please Enter Product Name");
+            document.f1.product_name.focus();
+            return false;
+        }
+        if(!document.f1.lname.value.match(data))
+        {
+            alert("Please Enter Valid Product Name");
+            document.f1.product_name.focus();
+            return false;
+        }
+
+        //validation for rate
+
+        if(document.f1.rate.value=="")
+        {
+            alert("Please Enter The Product Rate");
+            document.f1.rate.focus();
+            return false;
+        }
+
+        if(document.f1.rate.value<0)
+        {
+            alert("Please Enter Valid Product Rate");
+            document.f1.rate.focus();
+            return false;
+        }
+
+        //validation for qty
+
+        if(document.f1.qty.value=="")
+        {
+            alert("Please Enter The Product Quantity");
+            document.f1.qty.focus();
+            return false;
+        }
+
+        if(document.f1.qty.value<0)
+        {
+            alert("Please Enter The Product Quantity");
+            document.f1.qty.focus();
+            return false;
+        }
+
+        //validation for entry by
+
+        if(document.f1.entry.value=="")
+        {
+            alert("Please Enter The Employee Name");
+            document.f1.entry_by.focus();
+            return false;
+        }
+
+        var data=/^[A-Za-z]+$/;
+
+        if(document.f1.entry_by.value.match(data))
+        {
+            alert("Please Enter The Valid Employee Nmae");
+            document.f1.entry_by.focus();
+            return false;
+        }
+
+        //validation for purpose
+        
+        if(document.f1.purpose.value=="")
+        {
+            alert("Please Enter Purpose Of Purchase");
+            document.f1.purpose.focus();
+            return false;
+        }
+
+        var data=/^[A-Za-z]+$/;
+        if(document.f1.entry_by.value.match(data))
+        {
+            alert("Please Ente The Valid PurposeOf Purchase");
+            document.f1.purpose.focus();
+            return false;
+        }
+    }// end of validation
+
+    function billing()
+    {
+        var rate=document.f1.rate.value;
+        var qty=document.f1.qty.value;
+
+        var finalbill=rate * qty;
+
+        document.f1.bill.value=finalbill;
+    }
+    
+    
+    function showDate()
+    {
+        var d=new Date();
+        var dd=d.getDate();
+
+        var month_list=["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEPT","OCT","NOV","DEC"];
+
+        var mm=month_list[d.getMonth()];
+
+        var yy=d.getFullYear();
+
+        var cdate=dd+"/"+mm+"/"+yy;
+
+        document.f1.purchase_date.value=cdate;
+    }
+
+
+    </script>
+
+</head>
+<body onload="showDate()">
+
+     <div class="jumbotron">
+     	<h2 style="color: gold">VRJ Soft CRM</h2>
+     	<p>Digital Software Solution</p>
+    </div>
+
+    <button class="btn btn-primary">
+    	<a href="logout.html">Log Out</a>
+    </button>
+    
+    <a href="admin_dashboard.html">
+    	<button class="btn btn-info">Go To Dashboard</button>
+    </a>
+
+
+    <div class="container-fluid">
+    	<div class="col-sm-6">
+    		<img src="pics/pettycash.jpeg" style="width: 100%">
+    	</div>
+
+    	<div class="col-sm-6">
+    		<div class="form formdiv">
+   
+                    <form name="f1" method="POST" action="petty_cash_entry.jsp">
+    		<h3 class="text-center">Petty Cash Entry</h3>
+    		<div class="form-group">
+    			<input type="text" name="purchase_date"  class="form-control">
+    		</div>
+
+                
+                <div class="form-group">
+                    <select name="dname" class="form-control">
+                        <option value="">--select department--</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+
+    		<div class="form-group">
+    			<input type="text" name="product_name" placeholder="Enter Product Name" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="number" name="rate" placeholder="Product Rate" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="number" name="qty" placeholder="Product Quantity" class="form-control" onkeyup="billing()">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="number" name="bill" placeholder="Product Bill" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="text" name="entry_by" placeholder="Mention Employee name" class="form-control">
+    		</div>
+
+    		<div class="form-group">
+    			<input type="text" name="purpose" placeholder="Description of Need" class="form-control">
+    		</div>
+
+
+    		<div class="form-group text-center">
+    			
+    			<button class="btn btn-info" type="submit" onclick="return validation()">Submit</button>
+    			<button type="reset" class="btn btn-info">Reset</button>
+    		</div>
+        </form>
+    </div>
+    </div>
+    </div>
+
+
+</body>
+</html>

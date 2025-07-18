@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/admin_dashboard.html</url>
+            <bookmark id="1">
+                <name/>
+                <line>59</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/add_ticketing.html</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/day_plan_entry.html</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/logout.html</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/search_result.jsp</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/search_customer.jsp</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/admin_dashboard.jsp</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/add_ticketing.jsp</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/employee_dashboard.jsp</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/src/java/controller/CustomerSearchServlet.java</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/src/java/model/Customer.java</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/index.html</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/src/java/service/CustomerService.java</file>
+            <file>file:/C:/Users/SHREERAM/Documents/NetBeansProjects/vrj_soft_crm_final/vrj_soft_crm_final/web/loginCheck.jsp</file>
+        </group>
+    </open-files>
+</project-private>
